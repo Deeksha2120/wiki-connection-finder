@@ -23,4 +23,9 @@ public class ApiExceptionHandler {
         HttpStatus status = exception.isTimeout() ? HttpStatus.GATEWAY_TIMEOUT : HttpStatus.BAD_GATEWAY;
         return ProblemDetail.forStatusAndDetail(status, exception.getMessage());
     }
+
+    @ExceptionHandler(WikipediaRateLimitException.class)
+    ProblemDetail wikipediaRateLimit(WikipediaRateLimitException exception) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.SERVICE_UNAVAILABLE, exception.getMessage());
+    }
 }

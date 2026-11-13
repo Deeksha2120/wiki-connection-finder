@@ -15,7 +15,7 @@ public class WikipediaClientConfig {
     @Bean
     RestClient wikipediaRestClient(
             RestClient.Builder builder,
-            @Value("${wikipedia.user-agent:WikiConnectionFinder/0.0.1 (local development; set WIKIPEDIA_USER_AGENT with contact details)}") String userAgent,
+            @Value("${wikipedia.user-agent:WikiConnectionFinder/0.0.1 (https://github.com/Deeksha2120/wiki-connection-finder)}") String userAgent,
             @Value("${wikipedia.connect-timeout:3s}") Duration connectTimeout,
             @Value("${wikipedia.read-timeout:10s}") Duration readTimeout) {
         HttpClient httpClient = HttpClient.newBuilder().connectTimeout(connectTimeout).build();
